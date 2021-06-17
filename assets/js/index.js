@@ -124,4 +124,10 @@
       }
     });
 
+    $(document).ready(function(){
+     $('[data-toggle="collapse"]').click(function(){
+         $(".custom-navbar").toggleClass("top-nav-collapse");
+     });
+  });
+
 })(jQuery);
