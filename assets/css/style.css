@@ -838,6 +838,10 @@ footer h4{
     padding-top: 15px;
   }
 
+  .owl-carousel .owl-stage{
+   transform:translate3d(0,0,0) !important;
+ }
+
   .top-nav-collapse .navbar-header {
       padding-top: 15px;
   }
@@ -869,6 +873,7 @@ footer h4{
     align-items: center;
     background: none repeat scroll 0 0 #ffffff;
 }
+
 
 .loader {
   color: #2c2b2b;

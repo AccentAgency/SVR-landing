@@ -35,9 +35,8 @@
       items:1,
       loop:true,
       autoplayHoverPause: false,
-      autoplay: false,
+      autoplay: true,
       smartSpeed: 1000,
-      responsiveBaseWidth: window,
       responsiveClass:true,
     })
 
@@ -109,7 +108,6 @@
         },
         zoom: {
         enabled: true, // By default it's false, so don't forget to enable it
-        autoplay: true,
         duration: 300, // duration of the effect, in milliseconds
         easing: 'ease-in-out', // CSS transition easing function
 
