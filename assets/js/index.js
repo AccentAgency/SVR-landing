@@ -129,7 +129,16 @@
 
     $(document).ready(function(){
      $('[data-toggle="collapse"]').click(function(){
+
+       if($("#menu").hasClass("top-nav-collapse")){
+        
+       }
+       else{
          $(".custom-navbar").toggleClass("top-nav-collapse");
+       }
+
+
+
      });
   });
 
