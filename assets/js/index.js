@@ -37,7 +37,6 @@
       autoplayHoverPause: false,
       autoplay: true,
       smartSpeed: 1000,
-      responsiveClass:true,
     })
 
     $("#btn_gastronomia").click(function()

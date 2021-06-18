@@ -785,8 +785,15 @@ footer h4{
   }
 
   .owl-theme .owl-nav.disabled+.owl-dots {
-      margin-top: 5%;
+      margin-top: -5%;
   }
+
+  .owl-item {
+  opacity: 0;
+}
+.owl-item.active {
+  opacity: 1;
+}
 
   #portfolio h2 {
     padding-top: 20px;
@@ -838,9 +845,10 @@ footer h4{
     padding-top: 15px;
   }
 
-  .owl-carousel .owl-stage{
-   transform:translate3d(0,0,0) !important;
+  .owl-carousel {
+   overflow: hidden;
  }
+
 
   .top-nav-collapse .navbar-header {
       padding-top: 15px;
