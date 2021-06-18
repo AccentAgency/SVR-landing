@@ -21,6 +21,7 @@
           }
     });
 
+
     window.addEventListener('load', () => {
       AOS.init({
         duration: 1000,
@@ -38,6 +39,11 @@
       autoplay: true,
       smartSpeed: 1000,
     })
+
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    document.getElementsByTagName("html")[0].style.overflow = "auto";
+
+    $('.owl-carousel').trigger('refresh.owl.carousel');
 
     $("#btn_gastronomia").click(function()
     {
