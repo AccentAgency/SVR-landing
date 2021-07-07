@@ -512,17 +512,6 @@ PAQUETES FOTOGRAFICOS
   border-radius: 20px;
 }
 
-.img1{
-    background-image: url(../images/Paquetes/gastronomia.jpg);
-}
-
-.img2{
-    background-image: url(../images/Paquetes/producto.jpg);
-}
-
-.img3{
-    background-image: url(../images/Paquetes/humanizado.jpg);
-}
 
 .contenido-text{
   text-align: center;
