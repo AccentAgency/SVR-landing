@@ -512,6 +512,43 @@ PAQUETES FOTOGRAFICOS
   border-radius: 20px;
 }
 
+.img1{
+    background-image: url(../images/Paquetes/gastronomia.jpg);
+}
+
+.img2{
+    background-image: url(../images/Paquetes/producto.jpg);
+}
+
+.img3{
+    background-image: url(../images/Paquetes/humanizado.jpg);
+}
+
+.lazy {
+  background-image: none;
+  min-height: 0;
+  width: 70px;
+  height: 70px;
+  border: 10px solid #eee;
+  border-top: 10px solid #666;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+  left: 40%;
+  margin-top: 20px;
+  transform: translate(-50%,-50%);
+
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .contenido-text{
   text-align: center;
@@ -545,6 +582,10 @@ PAQUETES FOTOGRAFICOS
   transform: translateY(0);
   transition: 0.5s 0.2s;
   visibility: visible;
+}
+
+.lazy:hover{
+  visibility: hidden;
 }
 
 .img2:hover .team-hover {
@@ -720,6 +761,11 @@ footer h4{
   .card-paquetes{
     min-height: 350px;
     margin-bottom: 50px;
+  }
+
+  .lazy {
+    background-image: none;
+    min-height: 0;
   }
 
 }
