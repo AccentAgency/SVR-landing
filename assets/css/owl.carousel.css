@@ -72,8 +72,9 @@
   .owl-carousel.owl-loaded {
     display: block; }
   .owl-carousel.owl-loading {
-    opacity: 0;
-    display: block; }
+    min-height: 150px;
+  	background: url(ajax-loader.gif) no-repeat center center
+  }
   .owl-carousel.owl-hidden {
     opacity: 0; }
   .owl-carousel.owl-refresh .owl-item {
