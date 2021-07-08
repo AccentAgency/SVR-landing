@@ -1,1 +1,208 @@
-!function(o){"use strict";o(window).load(function(){o(".preloader").fadeOut(1e3)}),document.addEventListener("DOMContentLoaded",function(){var o;if("IntersectionObserver"in window){o=document.querySelectorAll(".lazy");var e=new IntersectionObserver(function(o,a){o.forEach(function(o){if(o.isIntersecting){var a=o.target;a.classList.remove("lazy"),e.unobserve(a)}})});o.forEach(function(o){e.observe(o)})}else{var a;function n(){a&&clearTimeout(a),a=setTimeout(function(){var e=window.pageYOffset;o.forEach(function(o){o.offsetTop<window.innerHeight+e&&(o.src=o.dataset.src,o.classList.remove("lazy"))}),0==o.length&&(document.removeEventListener("scroll",n),window.removeEventListener("resize",n),window.removeEventListener("orientationChange",n))},20)}o=document.querySelectorAll(".lazy"),document.addEventListener("scroll",n),window.addEventListener("resize",n),window.addEventListener("orientationChange",n)}}),o(".navbar-collapse a").on("click",function(){o(".navbar-collapse").collapse("hide")}),o(window).scroll(function(){o(".navbar").offset().top>50?o(".navbar-fixed-top").addClass("top-nav-collapse"):o(".navbar-fixed-top").removeClass("top-nav-collapse")}),window.addEventListener("load",()=>{AOS.init({duration:1e3,easing:"ease-in-out",once:!0,mirror:!1})}),o(".owl-carousel").owlCarousel({animateOut:"fadeOut",items:1,loop:!0,autoplayHoverPause:!1,autoplay:!0,smartSpeed:1e3}),document.getElementsByTagName("html")[0].style.overflow="hidden",document.getElementsByTagName("html")[0].style.overflow="auto",o(".owl-carousel").trigger("refresh.owl.carousel"),o("#btn_gastronomia").click(function(){o("#producto").css("display","none"),o("#humanizado").css("display","none"),o("#gastronomia").hasClass("fadeout")?(o("#gastronomia").removeClass("fadeout").addClass("fadein"),o("#gastronomia").css("display","block")):(o("#gastronomia").removeClass("fadein").addClass("fadeout"),o("#gastronomia").css("display","block"))}),o("#btn_producto").click(function(){o("#gastronomia").css("display","none"),o("#humanizado").css("display","none"),o("#producto").hasClass("fadeout")?(o("#producto").removeClass("fadeout").addClass("fadein"),o("#producto").css("display","block")):(o("#producto").removeClass("fadein").addClass("fadeout"),o("#producto").css("display","block"))}),o("#btn_humanizado").click(function(){o("#gastronomia").css("display","none"),o("#producto").css("display","none"),o("#humanizado").hasClass("fadeout")?(o("#humanizado").removeClass("fadeout").addClass("fadein"),o("#humanizado").css("display","block")):(o("#humanizado").removeClass("fadein").addClass("fadeout"),o("#humanizado").css("display","block"))}),o('#pageSteph a[href^="#"]').on("click",function(e){e.preventDefault();var a=o(this).attr("href"),n=o(a).offset().top;o("html, body").animate({scrollTop:n-100},500)}),o(".image-popup").magnificPopup({type:"image",removalDelay:300,mainClass:"mfp-with-zoom",gallery:{enabled:!0},zoom:{enabled:!0,duration:300,easing:"ease-in-out",opener:function(o){return o.is("div")?o:o.find("div")}}}),o(document).ready(function(){o('[data-toggle="collapse"]').click(function(){o("#menu").hasClass("top-nav-collapse")||o(".custom-navbar").toggleClass("top-nav-collapse")})});var e=o(".owl-carousel");e.owlCarousel({}),e.on("drag.owl.carousel",function(e){o("body").css("overflow","hidden")}),e.on("dragged.owl.carousel",function(e){o("body").css("overflow","auto")})}(jQuery);
+(function ($) {
+
+  "use strict";
+
+    // PRE LOADER
+
+    setTimeout(function(){ $('.preloader').fadeOut(1000); }, 3000);
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages;
+
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazy");
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+    });
+  } else {
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazy");
+
+    function lazyload () {
+      if(lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+            }
+        });
+        if(lazyloadImages.length == 0) {
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
+  }
+})
+
+
+    // MENU
+    $('.navbar-collapse a').on('click',function(){
+      $(".navbar-collapse").collapse('hide');
+    });
+
+    $(window).scroll(function() {
+      if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+          } else {
+            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+          }
+    });
+
+
+    window.addEventListener('load', () => {
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      })
+    });
+
+    $('.owl-carousel').owlCarousel({
+      animateOut: 'fadeOut',
+      items:1,
+      loop:true,
+      autoplayHoverPause: false,
+      autoplay: true,
+      smartSpeed: 1000,
+      lazyLoad: true
+    })
+
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    document.getElementsByTagName("html")[0].style.overflow = "auto";
+
+    $('.owl-carousel').trigger('refresh.owl.carousel');
+
+    $("#btn_gastronomia").click(function()
+    {
+      $("#producto").css("display", "none");
+      $("#humanizado").css("display", "none");
+      if ($("#gastronomia").hasClass("fadeout")){
+        $("#gastronomia").removeClass("fadeout").addClass("fadein");
+        $("#gastronomia").css("display", "block");
+      }
+      else{
+        $("#gastronomia").removeClass("fadein").addClass("fadeout");
+        $("#gastronomia").css("display", "block");
+      }
+
+
+    })
+
+
+    $("#btn_producto").click(function()
+    {
+      $("#gastronomia").css("display", "none");
+      $("#humanizado").css("display", "none");
+      if ($("#producto").hasClass("fadeout")){
+        $("#producto").removeClass("fadeout").addClass("fadein");
+        $("#producto").css("display", "block");
+      }
+      else{
+        $("#producto").removeClass("fadein").addClass("fadeout");
+        $("#producto").css("display", "block");
+      }
+
+    })
+
+    $("#btn_humanizado").click(function()
+    {
+      $("#gastronomia").css("display", "none");
+      $("#producto").css("display", "none");
+      if ($("#humanizado").hasClass("fadeout")){
+        $("#humanizado").removeClass("fadeout").addClass("fadein");
+        $("#humanizado").css("display", "block");
+      }
+      else{
+        $("#humanizado").removeClass("fadein").addClass("fadeout");
+        $("#humanizado").css("display", "block");
+      }
+
+    })
+
+    $('#pageSteph a[href^="#"]').on('click', function(e) {
+      e.preventDefault();
+
+      var id = $(this).attr('href'),
+          targetOffset = $(id).offset().top;
+
+      $('html, body').animate({
+        scrollTop: targetOffset - 100
+       }, 500);
+    });
+
+    // MAGNIFIC POPUP
+    $('.image-popup').magnificPopup({
+        type: 'image',
+        removalDelay: 300,
+        mainClass: 'mfp-with-zoom',
+        gallery:{
+          enabled:true
+        },
+        zoom: {
+        enabled: true, // By default it's false, so don't forget to enable it
+        duration: 300, // duration of the effect, in milliseconds
+        easing: 'ease-in-out', // CSS transition easing function
+
+        // The "opener" function should return the element from which popup will be zoomed in
+        // and to which popup will be scaled down
+        // By defailt it looks for an image tag:
+        opener: function(openerElement) {
+        // openerElement is the element on which popup was initialized, in this case its <a> tag
+        // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+        return openerElement.is('div') ? openerElement : openerElement.find('div');
+        }
+      }
+    });
+
+    $(document).ready(function(){
+     $('[data-toggle="collapse"]').click(function(){
+
+       if($("#menu").hasClass("top-nav-collapse")){
+
+       }
+       else{
+         $(".custom-navbar").toggleClass("top-nav-collapse");
+       }
+
+
+
+     });
+  });
+
+  var owl = $('.owl-carousel');
+owl.owlCarousel({
+    //  your options
+});
+
+owl.on('drag.owl.carousel', function(event) {
+    $('body').css('overflow', 'hidden');
+});
+
+owl.on('dragged.owl.carousel', function(event) {
+    $('body').css('overflow', 'auto');
+});
+
+})(jQuery);
