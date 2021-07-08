@@ -183,19 +183,19 @@ p {
   background-position: center
 }
 .slider .item-first {
-    background-image: url(../images/banner/3.jpg)
+    background-image: url(./ajax-loader.gif)
 }
 .slider .item-second {
-    background-image: url(../images/banner/2.jpg)
+    background-image: url(./ajax-loader.gif)
 }
 .slider .item-third {
-    background-image: url(../images/banner/1.jpg)
+    background-image: url(./ajax-loader.gif)
 }
 .slider .item-four {
-    background-image: url(../images/banner/4.jpg)
+    background-image: url(./ajax-loader.gif)
 }
 .slider .item-five {
-    background-image: url(../images/banner/5.jpg)
+    background-image: url(./ajax-loader.gif)
 }
 .slider .caption {
     display: flex;

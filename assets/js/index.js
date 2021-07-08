@@ -8,8 +8,10 @@ $(function() {
     $('.owl-carousel').on('initialized.owl.carousel', function(event){
       $('.preloader').fadeOut(1000);
     })
+
     $('.owl-carousel').owlCarousel({
       animateOut: 'fadeOut',
+      lazyLoad:true,
       navigation : false,
       items:1,
       loop:true,
@@ -20,9 +22,8 @@ $(function() {
 
     $(window).load(function () {
       if (!$('.preloader').is(':visible')){
-      alert("esta visible")
+        owl.trigger('play.owl.autoplay', [2000]);
       }else{
-          owl.trigger('play.owl.autoplay', [2000]);
       }
     });
 
