@@ -30,7 +30,7 @@ $(function() {
     if (document.readyState !== "loading") {
       loader();
     } else {
-        document.addEventListener("DOMContentLoaded", loader);
+        document.addEventListener("DOMContentLoaded", loader());
     }
 
 
