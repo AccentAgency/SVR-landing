@@ -4,7 +4,7 @@
 
     // PRE LOADER
 
-    setTimeout(function(){ $('.preloader').fadeOut(1000); }, 3000);
+    setTimeout(function(){ $('.preloader').fadeOut(1000); }, 1000);
 
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -82,12 +82,12 @@
 
     $('.owl-carousel').owlCarousel({
       animateOut: 'fadeOut',
+      navigation : false,
       items:1,
       loop:true,
-      autoplayHoverPause: false,
-      autoplay: true,
-      smartSpeed: 1000,
-      lazyLoad: true
+      lazyLoad:true,
+      autoplay:true,
+      smartSpeed:1000
     })
 
     document.getElementsByTagName("html")[0].style.overflow = "hidden";
