@@ -1,21 +1,23 @@
-(function ($) {
+
+$(function() {
 
   "use strict";
 
     // PRE LOADER
 
-
     $('.owl-carousel').on('initialized.owl.carousel', function(event){
       $('.preloader').fadeOut(1000);
     })
-
     $('.owl-carousel').owlCarousel({
       animateOut: 'fadeOut',
       navigation : false,
       items:1,
+      loop:true,
       autoplay:true,
-      smartSpeed:1000
+      smartSpeed:1500
     })
+
+
 
     document.addEventListener("DOMContentLoaded", function() {
     var lazyloadImages;
@@ -206,4 +208,4 @@ owl.on('dragged.owl.carousel', function(event) {
     $('body').css('overflow', 'auto');
 });
 
-})(jQuery);
+})
