@@ -13,11 +13,18 @@ $(function() {
       navigation : false,
       items:1,
       loop:true,
-      autoplay:true,
+      autoplay:false,
       smartSpeed:1500
     })
 
 
+    $(window).load(function () {
+      if (!$('.preloader').is(':visible')){
+      alert("esta visible")
+      }else{
+          owl.trigger('play.owl.autoplay', [2000]);
+      }
+    });
 
     document.addEventListener("DOMContentLoaded", function() {
     var lazyloadImages;
