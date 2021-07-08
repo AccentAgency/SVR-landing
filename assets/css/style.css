@@ -182,20 +182,12 @@ p {
   height: 780px;
   background-position: center
 }
-.slider .item-first {
-    background-image: url(./ajax-loader.gif)
+.owl-lazy {
+    opacity: 1 !important;
+    transition: opacity .4s ease;
 }
-.slider .item-second {
-    background-image: url(./ajax-loader.gif)
-}
-.slider .item-third {
-    background-image: url(./ajax-loader.gif)
-}
-.slider .item-four {
-    background-image: url(./ajax-loader.gif)
-}
-.slider .item-five {
-    background-image: url(./ajax-loader.gif)
+.owl-carousel {
+  background: url("https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/ajax-loader.gif") no-repeat center center;
 }
 .slider .caption {
     display: flex;
